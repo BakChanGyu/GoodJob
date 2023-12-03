@@ -40,7 +40,6 @@ public class EmailService {
         setCompleted(sendEmailLog, trySendRs.getResultCode(), trySendRs.getMsg());
     }
 
-    @Async
     @Transactional
     public void sendJoinEmail(String email) {
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
@@ -53,7 +52,6 @@ public class EmailService {
         sendEmail(EmailType.JOIN, sendEmailLog, verificationCode);
     }
 
-    @Async
     @Transactional
     public void sendPasswordEmail(String username, String email, String password) {
         String title = getEmailTitle(EmailType.PASSWORD);
